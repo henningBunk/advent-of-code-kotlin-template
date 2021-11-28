@@ -1,11 +1,22 @@
-# TODO
-* [ ] create a template repo
-* [ ] explain how to run the tests
+# Advent of Code Kotlin Template
+A template which will help you concentrate on the puzzle solutions. It brings
+* Downloading and caching of the puzzle input
+* A place to enter your puzzle solving code. Results are printed and the time gets measured.
+* Tests to check your puzzle solving code against the example data you get each day.
 
-## Setup the automatic input download
-The setup process differs depending on how you are planning to execute your solutions:
+## Setup
+* Click 'Use this template'
+* Clone your new repository
+* Open the project with IntelliJ Idea CE (recommended)
+
+## Set up the automatic input download
+The setup process differs depending on how you are planning to execute your solutions.
 1. Via gradle from the command line
-2. Via the ▶️ run button in IntelliJ
+2. Via the run button in IntelliJ
+
+Either way, you will have to determine your session cookie beforehand.
+
+> The downloader tries to download the input for the current year. If you want to use this template for older puzzles you have to adjust it accordingly.
 
 ### 0. Determine your session cookie
 * Open [adventofcode.com](https://adventofcode.com) in your browser
@@ -20,11 +31,11 @@ The setup process differs depending on how you are planning to execute your solu
 1. Create the file `./gradle.properties`
 2. Insert the line `sessionCookie=yourSessionCookieWithoutQuotes`
 #### Execution for a day
-Execute `./gradlew run --args={day number}`
+Execute `./gradlew run -Dday={day number}`
 
-> Alternatively you could skip the setup and pass the cookie as a parameter: `./gradlew run --args="{day number} {session cookie}"`
+> Alternatively you could skip the setup and pass the cookie as a parameter: `./gradlew run -Dday={day number} -DsessionCookie={session cookie}"`
 
-### 2. Via the ▶️ run button in IntelliJ
+### 2. Via the run button in IntelliJ
 1. Open one of the `Day{XY}.kt` files
 2. Click the play button next to the `main` function, select `Modify run configuration`
 3. Insert your session cookie into the field `Program arguments`
@@ -35,11 +46,14 @@ You have to repeat this for each day. Or you edit your run configuration each da
 ## Tests
 Tests are prepared. They are written with [KoTest](https://kotest.io/).  
 Please make sure to install the KoTest IntelliJ Idea plugin from the plugin repository in the settings.  
-For KoTests API have a look into the [documentation](https://kotest.io/docs/framework/framework.html) and the [assertions](https://kotest.io/docs/assertions/assertions.html).
 
-If you need to mock something, [MockK](https://mockk.io/) is ready to go.
+Each day you can insert the given example data and solution into the according test class. Running the tests will check if your solution will result in the correct answer.
 
 You can execute the tests with one of these options:
-* Clicking the play button next to the test class or method (KoTest plugin required)
-* Selecting and running the according run configuration
-* Executing `./gradlew :app:test --tests "day{XY}.Day{XY}Test"`
+* Click the play button next to the test class or method (KoTest plugin required)
+* Select and run the according run configuration
+* Execute `./gradlew :app:test --tests "day{XY}.Day{XY}Test"`
+
+If you want to write more tests along the way: 
+* For KoTests API have a look into the [documentation](https://kotest.io/docs/framework/framework.html) and the list of [assertions](https://kotest.io/docs/assertions/assertions.html).
+* If you need to mock something, [MockK](https://mockk.io/) is ready to go.
