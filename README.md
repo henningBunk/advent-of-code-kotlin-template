@@ -4,6 +4,7 @@ A template which will help you concentrate on the puzzle solutions. It brings
 * A place to enter your puzzle solving code. Results are printed and the time gets measured.
 * Tests to check your puzzle solving code against the example data you get each day.
 
+![Screenshot](screenshot.png)
 ## Setup
 * Click 'Use this template'
 * Clone your new repository
