@@ -9,7 +9,7 @@ A template which will help you concentrate on the puzzle solutions. It brings
 * Clone your new repository
 * Open the project with IntelliJ Idea CE (recommended)
 
-## Set up the automatic input download
+### Set up the automatic input download
 The setup process differs depending on how you are planning to execute your solutions.
 1. Via gradle from the command line
 2. Via the run button in IntelliJ
@@ -18,7 +18,7 @@ Either way, you will have to determine your session cookie beforehand.
 
 > The downloader tries to download the input for the current year. If you want to use this template for older puzzles you have to adjust it accordingly.
 
-### 0. Determine your session cookie
+#### 0. Determine your session cookie
 * Open [adventofcode.com](https://adventofcode.com) in your browser
 * Login
 * Open the developer tools
@@ -26,16 +26,16 @@ Either way, you will have to determine your session cookie beforehand.
 * Select "Cookies" → "https://adventofcode.com"
 * A table will open, the row with the name "session" is the correct one, the session cookie is the string in the "Value" field
 
-### 1. Via gradle from the command line
-#### Setup (only needed once)
-1. Create the file `./gradle.properties`
-2. Insert the line `sessionCookie=yourSessionCookieWithoutQuotes`
-#### Execution for a day
-Execute `./gradlew run -Dday={day number}`
+#### 1. Via gradle from the command line
+* Setup (only needed once)
+  1. Create the file `./gradle.properties`
+  2. Insert the line `sessionCookie=yourSessionCookieWithoutQuotes`
+* Execution for a day
+  * Execute `./gradlew run -Dday={day number}`
 
 > Alternatively you could skip the setup and pass the cookie as a parameter: `./gradlew run -Dday={day number} -DsessionCookie={session cookie}"`
 
-### 2. Via the run button in IntelliJ
+#### 2. Via the run button in IntelliJ
 1. Open one of the `Day{XY}.kt` files
 2. Click the play button next to the `main` function, select `Modify run configuration`
 3. Insert your session cookie into the field `Program arguments`
