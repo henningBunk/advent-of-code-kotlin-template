@@ -6,21 +6,22 @@ import com.github.kittinunf.fuel.core.Response
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import java.io.File
+import java.time.LocalDateTime
 import kotlin.system.exitProcess
 
 class InputRepo(
     private val sessionCookie: String,
-    private val year: Int = 2021,
+    private val year: Int = LocalDateTime.now().year,
 ) {
     fun get(day: Int): List<String> {
         val file = File("input/$year-$day.txt")
         return when {
             file.exists() -> {
-                println("Loading input for day $day from cache.")
+                println("Loading input for $year day $day from cache.")
                 file.read()
             }
             else -> {
-                println("Downloading input for day $day.")
+                println("Downloading input for $year day $day.")
                 download(day)
                     .also {
                         file.write(it)
@@ -47,14 +48,14 @@ class InputRepo(
         when (result) {
             is Result.Success -> return result.get().trim()
             is Result.Failure -> {
-                printError(response, result)
+                printError(day, response, result)
                 exitProcess(1)
             }
         }
     }
 
-    private fun printError(response: Response, result: Result.Failure<FuelError>) {
-        println("\nError downloading the input. ${response.statusCode}: ${response.responseMessage}")
+    private fun printError(day: Int, response: Response, result: Result.Failure<FuelError>) {
+        println("\nError downloading the input for $year day $day. ${response.statusCode}: ${response.responseMessage}")
         when (response.statusCode) {
             404 -> println("Did you wake up too early?")
             400 -> println("Is your session cookie correctly set up?")

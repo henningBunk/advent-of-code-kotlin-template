@@ -1,16 +1,6 @@
 # TODO
-* [ ] setup mockk
 * [ ] create a template repo
-* [ ] write empty test files
 * [ ] explain how to run the tests
-* [ ] write tests for the InputRepo
-  * no network call when there is output downloaded
-  * correct output from cache when there is one
-  * correct write to cache after download without newlines
-  * correct return after download without newlines
-  * correct network call
-    * address
-    * cookie
 
 ## Setup the automatic input download
 The setup process differs depending on how you are planning to execute your solutions:
@@ -35,7 +25,7 @@ Execute `./gradlew run --args={day number}`
 > Alternatively you could skip the setup and pass the cookie as a parameter: `./gradlew run --args="{day number} {session cookie}"`
 
 ### 2. Via the ▶️ run button in IntelliJ
-1. Open one of the `DayXY.kt` files
+1. Open one of the `Day{XY}.kt` files
 2. Click the play button next to the `main` function, select `Modify run configuration`
 3. Insert your session cookie into the field `Program arguments`
 4. Execute the day by clicking the run button again and select `Run`
@@ -48,3 +38,8 @@ Please make sure to install the KoTest IntelliJ Idea plugin from the plugin repo
 For KoTests API have a look into the [documentation](https://kotest.io/docs/framework/framework.html) and the [assertions](https://kotest.io/docs/assertions/assertions.html).
 
 If you need to mock something, [MockK](https://mockk.io/) is ready to go.
+
+You can execute the tests with one of these options:
+* Clicking the play button next to the test class or method (KoTest plugin required)
+* Selecting and running the according run configuration
+* Executing `./gradlew :app:test --tests "day{XY}.Day{XY}Test"`

@@ -42,5 +42,6 @@ fun main(args: Array<String>) {
         23 -> day23.main(arrayOf(sessionCookie))
         24 -> day24.main(arrayOf(sessionCookie))
         25 -> day25.main(arrayOf(sessionCookie))
+        else -> println("Invalid day.")
     }
 }

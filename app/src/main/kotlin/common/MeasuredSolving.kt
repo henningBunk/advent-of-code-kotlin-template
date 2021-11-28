@@ -13,8 +13,8 @@ fun solve(
     solvePart1: SolvingFun,
     solvePart2: SolvingFun,
 ) {
-    solvePart(day, 1, input, solvePart1)
-    solvePart(day, 2, input, solvePart2)
+    solvePart(day = day, part = 1, input = input, solve = solvePart1)
+    solvePart(day = day, part = 2, input = input, solve = solvePart2)
 }
 
 @OptIn(ExperimentalTime::class)
