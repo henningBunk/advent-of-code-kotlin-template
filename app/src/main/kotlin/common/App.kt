@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
         exitProcess(1)
     }
 
-    val sessionCookie = try { System.getProperty("sessionCookie") } catch (_: Exception) {
+    val sessionCookie: String = try { System.getProperty("sessionCookie") } catch (_: Exception) {
         println("Please set the session cookie in the gradle.properties file or by adding '-DsessionCookie=yourCookie' to your run command.")
         exitProcess(1)
     }

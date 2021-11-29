@@ -22,12 +22,12 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-val sessionCookie: String by project
+val sessionCookie: String? by project
 application {
     mainClass.set("common/App")
-    applicationDefaultJvmArgs = listOf(
+    applicationDefaultJvmArgs = listOfNotNull(
         "-Dday=${System.getProperty("day")}",
-        "-DsessionCookie=$sessionCookie"
+        sessionCookie?.let { "-DsessionCookie=$it" }
     )
 }
 
